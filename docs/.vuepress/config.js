@@ -3,6 +3,7 @@ const navConf = require('./config/navConf.js');
 const headConf = require('./config/headConf.js');
 
 module.exports = {
+  base: '/js-Docs/'
   title: '飞跃高山与大洋的鱼',
   description: '飞跃高山与大洋的鱼的文档, vuepress 文档',
   head: headConf,
