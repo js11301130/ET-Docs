@@ -1,25 +1,30 @@
 {
-  "name": "com.findsoft.unitydocs",
+  "name": "documents",
   "version": "1.0.0",
-  "description": "U3D框架文档",
-  "main": "index.js",
+  "description": "js11301130's docs web",
+  "private": false,
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
-    "deploy":"bash deploy.sh",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "docs:dev": "vuepress dev docs --temp .temp",
+    "docs:build": "vuepress build docs"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/js11301130/js-Docs.git"
   },
-  "keywords": [
-    "findsoft"
-  ],
-  "author": "js11301130",
+  "author": "shanyuhai123",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/js11301130/js-Docs/issues"
+  "bugs": {    "url": "https://github.com/shanyuhai123/documents/issues"
   },
-  "homepage": "https://github.com/js11301130/js-Docs#readme"
+  "homepage": "https://github.com/shanyuhai123/documents#readme",
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.7.0",
+    "@vuepress/plugin-google-analytics": "^1.7.0",
+    "@vuepress/plugin-medium-zoom": "^1.7.0",
+    "@vuepress/plugin-pwa": "^1.7.0",
+    "moment": "^2.29.1",
+    "vuepress": "^1.7.0"
+  },
+  "dependencies": {
+    "vuepress-plugin-auto-sidebar": "^2.2.2"
+  }
 }
