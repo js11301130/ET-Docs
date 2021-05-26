@@ -1,0 +1,24 @@
+{
+  "name": "com.findsoft.unitydocs",
+  "version": "1.0.0",
+  "description": "U3D框架文档",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/js11301130/js-Docs.git"
+  },
+  "keywords": [
+    "findsoft"
+  ],
+  "author": "js11301130",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/js11301130/js-Docs/issues"
+  },
+  "homepage": "https://github.com/js11301130/js-Docs#readme"
+}
