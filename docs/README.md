@@ -1,24 +1,23 @@
 ---
 home: true
-heroImage: /app.png
-heroText: 飞跃高山与大洋的鱼
+heroImage: /image/githubicon/004.png
+heroText: ET(魔改)框架使用说明
 tagline: 文档, 博客
-actionText: 进入笔记 →
+actionText: 进入文档 →
 actionLink: /guide/
 ---
 
-## 关于~~文档~~笔记
+## 关于文档
 
 ::: danger
 
-这根本不是什么文档，仅仅是一个个人笔记而已。
+目前只是ET魔改后的使用流程的说明。
 
 :::
 
-这个 VuePress 文档本应该在一个多月以前就搭建出来, 结果硬生生地拖过了年, 不过早期是准备以文档的形式来介绍, 现在是录制成了视频：
 
 
-:tada: [视频地址](https://www.bilibili.com/video/av43316513/) :tada:
 
 
-<p style="text-align:center;">MIT Licensed | Copyright © 2018-2020 飞跃高山与大洋的鱼 | ICP证：<a href="http://www.beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">皖ICP备19002167号</a></p>
+<p style="text-align:center;"> Copyright © 2021-XXXX js11301130</p>
+<!-- <p style="text-align:center;">MIT Licensed | Copyright © 2018-2020 js11301130 | ICP证：<a href="http://www.beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">皖ICP备19002167号</a></p> -->
