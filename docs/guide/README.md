@@ -10,7 +10,9 @@ title: 介绍
 + UI自动绑定生成
 + AB包自动生成代码引用
 
-:tada: [原版ET地址](https://github.com/egametang/ET) :tada:
+:octocat:[原版ET地址](https://github.com/egametang/ET) :octocat:
+
+[表情包地址](https://www.webfx.com/tools/emoji-cheat-sheet/)
 
 ## ET框架整体文件夹说明
 
