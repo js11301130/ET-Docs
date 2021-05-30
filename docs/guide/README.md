@@ -4,178 +4,91 @@ title: 介绍
 
 ## 前言
 
-框架是基于ET5.0 在原有基础上优化新增了一些组件功能模块。
+# ET的介绍：:cat:[原版ET地址](https://github.com/egametang/ET)
 
-+ Odin可视化数据配置
-+ UI自动绑定生成!
-+ AB包自动生成代码引用
+ET是一个开源的游戏客户端（基于unity3d）服务端双端框架，服务端是使用C# .net core开发的分布式游戏服务端，其特点是开发效率高，性能强，双端共享逻辑代码，客户端服务端热更机制完善，同时支持可靠udp tcp websocket协议，支持服务端3D recast寻路等等，本框架是基于ET5.0框架新增了一些功能模块以及简化了一些流程。
 
-:cat:[原版ET地址](https://github.com/egametang/ET)
+# ET的功能：
+
+### 1.可用VS单步调试的分布式服务端，N变1
+
+一般来说，分布式服务端要启动很多进程，一旦进程多了，单步调试就变得非常困难，导致服务端开发基本上靠打log来查找问题。平常开发游戏逻辑也得开启一大堆进程，不仅启动慢，而且查找问题及其不方便，要在一堆堆日志里面查问题，这感觉非常糟糕，这么多年也没人解决这个问题。ET框架使用了类似守望先锋的组件设计，所有服务端内容都拆成了一个个组件，启动时根据服务器类型挂载自己所需要的组件。这有点类似电脑，电脑都模块化的拆成了内存，CPU，主板等等零件，搭配不同的零件就能组装成一台不同的电脑，例如家用台式机需要内存，CPU，主板，显卡，显示器，硬盘。而公司用的服务器却不需要显示器和显卡，网吧的电脑可能不需要硬盘等。正因为这样的设计，ET框架可以将所有的服务器组件都挂在一个服务器进程上，那么这个服务器进程就有了所有服务器的功能，一个进程就可以作为整组分布式服务器使用。这也类似电脑，台式机有所有的电脑组件，那它也完全可以当作公司服务器使用，也可以当作网吧电脑。
+
+### 2.随意可拆分功能的分布式服务端，1变N
+
+分布式服务端要开发多种类型的服务器进程，比如Login server，gate server，battle server，chat server friend server等等一大堆各种server，传统开发方式需要预先知道当前的功能要放在哪个服务器上，当功能越来越多的时候，比如聊天功能之前在一个中心服务器上，之后需要拆出来单独做成一个服务器，这时会牵扯到大量迁移代码的工作，烦不胜烦。ET框架在平常开发的时候根本不太需要关心当前开发的这个功能会放在什么server上，只用一个进程进行开发，功能开发成组件的形式。发布的时候使用一份多进程的配置即可发布成多进程的形式，是不是很方便呢？随便你怎么拆分服务器。只需要修改极少的代码就可以进行拆分。不同的server挂上不同的组件就行了嘛！
+
+### 3.跨平台的分布式服务端
+
+ET框架使用C#做服务端，现在C#是完全可以跨平台的，在linux上安装.netcore，即可，不需要修改任何代码，就能跑起来。性能方面，现在.netcore的性能非常强，比lua，python，js什么快的多了。做游戏服务端完全不在话下。平常我们开发的时候用VS在windows上开发调试，发布的时候发布到linux上即可。ET框架还提供了一键同步工具，打开unity->tools->rsync同步，即可同步代码到linux上
+
+```
+./Run.sh Config/StartConfig/192.168.12.188.txt 
+```
+
+即可编译启动服务器。
+
+### 4.提供协程支持
+
+C#天生支持异步变同步语法 async和await，比lua，python的协程强大的多，新版python以及javascript语言甚至照搬了C#的协程语法。分布式服务端大量服务器之间的远程调用，没有异步语法的支持，开发将非常麻烦。所以java没有异步语法，做单服还行，不适合做大型分布式游戏服务端。例如：
+
+```
+// 发送C2R_Ping并且等待响应消息R2C_Ping
+R2C_Ping pong = await session.Call(new C2R_Ping()) as R2C_Ping;
+Log.Debug("收到R2C_Ping");
+
+// 向mongodb查询一个id为1的Player，并且等待返回
+Player player = await Game.Scene.GetComponent<DBProxyComponent>().Query<Player>(1);
+Log.Debug($"打印player name: {player.Name}")
+```
+
+可以看出，有了async await，所有的服务器间的异步操作将变得非常连贯，不用再拆成多段逻辑。大大简化了分布式服务器开发
+
+### 5.提供类似erlang的actor消息机制
+
+erlang语言一大优势就是位置透明的消息机制，用户完全不用关心对象在哪个进程，拿到id就可以对对象发送消息。ET框架也提供了actor消息机制，实体对象只需要挂上MailBoxComponent组件，这个实体对象就成了一个Actor，任何服务器只需要知道这个实体对象的id就可以向其发送消息，完全不用关心这个实体对象在哪个server，在哪台物理机器上。其实现原理也很简单，ET框架提供了一个位置服务器，所有挂载MailBoxComponent的实体对象都会将自己的id跟位置注册到这个位置服务器，其它服务器向这个实体对象发送消息的时候如果不知道这个实体对象的位置，会先去位置服务器查询，查询到位置再进行发送。
+
+### 6.提供服务器不停服动态更新逻辑功能
+
+热更是游戏服务器不可缺少的功能，ET框架使用的组件设计，可以做成守望先锋的设计，组件只有成员，无方法，将所有方法做成扩展方法放到热更dll中，运行时重新加载dll即可热更所有逻辑。
+
+### 7.客户端使用C#热更新，热更新一键切换
+
+因为ios的限制，之前unity热更新一般使用lua，导致unity3d开发人员要写两种代码，麻烦的要死。之后幸好出了ILRuntime库，利用ILRuntime库，unity3d可以利用C#语言加载热更新dll进行热更新。ILRuntime一个缺陷就是开发时候不支持VS debug，这有点不爽。ET框架使用了一个预编译指令ILRuntime，可以无缝切换。平常开发的时候不使用ILRuntime，而是使用Assembly.Load加载热更新动态库，这样可以方便用VS单步调试。在发布的时候，定义预编译指令ILRuntime就可以无缝切换成使用ILRuntime加载热更新动态库。这样开发起来及其方便，再也不用使用狗屎lua了
+
+### 8.客户端全热更新
+
+客户端可以实现所有逻辑热更新，包括协议，config，ui等等
+
+### 9.客户端服务端用同一种语言，并且共享代码
+
+下载ET框架，打开服务端工程，可以看到服务端引用了客户端很多代码，通过引用客户端代码的方式实现了双端共享代码。例如客户端服务端之间的网络消息两边完全共用一个文件即可，添加一个消息只需要修改一遍。
+
+### 10.KCP ENET TCP Websocket协议无缝切换
+
+ET框架不但支持TCP，而且支持可靠的UDP协议（ENET跟KCP），ENet是英雄联盟所使用的网络库，其特点是快速，并且网络丢包的情况下性能也非常好，这个我们做过测试TCP在丢包5%的情况下，moba游戏就卡的不行了，但是使用ENet，丢包20%仍然不会感到卡。非常强大。框架还支持使用KCP协议，KCP也是可靠UDP协议，据说比ENET性能更好，使用kcp请注意，需要自己加心跳机制，否则20秒没收到包，服务端将断开连接。协议可以无缝切换。
+
+### 11. 3D Recast寻路功能
+
+可以Unity导出场景数据，给服务端做recast寻路。做MMO非常方便，demo演示了服务端3d寻路功能
+
+### 12. 服务端支持repl，也可以动态执行一段新代码
+
+这样就可以打印出进程中任何数据，大大简化了服务端查找问题的难度，开启repl方法，直接在console中输入repl回车即可进入repl模式
+
+### 13.打包工具
+
+ET框架带有一整套打包工具，完全傻瓜式。一键打包，自动分析共享资源。对比md5更新
+
+### 14.还有很多很多功能，我就不详细介绍了
+
+a.及其方便检查CPU占用和内存泄漏检查，vs自带分析工具，不用再为性能和内存泄漏检查而烦恼
+b.使用NLog库，打log及其方便，平常开发时，可以将所有服务器log打到一个文件中，再也不用一个个文件搜索log了
+c.统一使用Mongodb的bson做序列化，消息和配置文件全部都是bson或者json，并且以后使用mongodb做数据库，再也不用做格式转换了。
+d.提供一个强大的ai行为树工具
+e.提供一个同步工具
+f.提供命令行配置工具，配置分布式非常简单
+
+ET框架的服务端是一个强大灵活的分布式服务端架构，完全可以满足绝大部分大型游戏需求。使用这套框架，客户端开发者就可以自己完成双端开发，节省大量人力物力，节省大量沟通时间。
 
 :smirk:[表情包地址](https://www.webfx.com/tools/emoji-cheat-sheet/)
-
-## 文件夹说明
-
-+ ### ET外部文件夹
-
-  ```
-  ├─Config 一些配置文件 服务器和数据库参数以及项目json数据
-  ├─FileServer 资源服务器的打包文件
-  ├─Logs 服务器Log日志
-  ├─Proto 
-  │   ├─protoc.exe   proto文本转C#工具
-  │   ├─HotfixMessage.proto 服务器与客户端之间的数据传输结构(可热更)
-  │   ├─InnerMessage.proto  服务器和服务器之间的数据传输结构
-  │   └─OuterMessage.proto  服务器与客户端之间的数据传输结构
-  ├─Release 文件打包
-  ├─Server 服务器代码
-  ├─Tools  一些工具的项目工程 如资源服务器，proto2C#等
-  └─Unity  客户端工程
-  ```
-
-+ ### 客户端
-
-  ```
-  ├─Bundles 所有项目需要使用的预制件
-  │     ├─Independent 热更代码和配置数据的预制件
-  │     └─Project  项目的预制件
-  │          ├─Common 通用预制件
-  │          └─UI  UI预制件
-  ├─DemoTest 测试用的文件夹 所有测试脚本以及测试场景放这里
-  ├─Editor 编辑器脚本
-  ├─Hotfix 热更代码
-  │   ├─Base 热更的基础代码
-  │   ├─Module 模块功能
-  │   ├─Project 项目代码
-  │   └─Entity 实体类
-  ├─Model 本地代码
-  │   ├─Base 本地的基础代码
-  │   ├─Component 组件类
-  │   ├─Entity 实体类
-  │   ├─Helper 一些通用的静态类
-  │   ├─ILBinding CLR绑定 自动生成的代码
-  │   ├─Module 模块代码
-  │   └─Extension 扩展方法类
-  ├─OPS 代码混淆插件
-  ├─Res 资源文件如 模型，贴图，材质，动画等
-  └─ThirdParty  第三方插件
-          ├─Demigiant  DotweenPro
-          ├─Google.Protobuf 数据传输
-          ├─MongoDB 数据库
-          ├─UITool 一些UI的通用工具
-          ├─HighlightPlus 高亮后处理
-          └─ILRuntime 代码热更
-  ```
-
-+ ### 服务端
-
-  ```
-  ├─App 服务器入口
-  │     ├─Program.cs 服务器入口代码
-  ├─Hotfix 热更代码
-  │   ├─Handler 数据接收处理类
-  │   ├─Module 模块功能
-  │   └─Helper 静态工具类
-  ├─Model 本地代码
-  │   ├─Base 本地的基础代码
-  │   ├─Component 组件类
-  │   ├─Entity 实体类
-  │   ├─Helper 一些通用的静态类
-  │   └─Module 模块代码
-  └─ThirdParty  第三方插件
-          ├─KcpLib  通讯协议
-          └─MongoDBDriver 数据库
-  ```
-
-## 快速开始
-
-+  ### 创建ET脚本
-
-  <img :src="$withBase('/image/project/createETscripts.png')" alt="mixureSecure">
-
-  + Component 创建组件脚本
-
-     创建完成后会自动生成模板脚本，目前会自动生成Awake Start Update 3个常用函数
-
-        using ETModel;
-        using System.Collections;
-        using System.Collections.Generic;
-        namespace ETHotfix
-        {
-            [ObjectSystem]
-            public class SampleComponentAwakeSystem : AwakeSystem<SampleComponent>
-            {
-                public override void Awake(SampleComponent self)
-                {
-                    self.Awake();
-                }
-            }
-        
-            [ObjectSystem]
-            public class SampleComponentStartSystem : StartSystem<SampleComponent>
-            {
-                public override void Start(SampleComponent self)
-                {
-                    self.Start();
-                }
-            }
-        
-            [ObjectSystem]
-            public class SampleComponentUpdateSystem : UpdateSystem<SampleComponent>
-            {
-                public override void Update(SampleComponent self)
-                {
-                    self.Update();
-                }
-            }
-        
-            public class SampleComponent : Component
-            {
-                internal void Awake()
-                {
-                    //Do SomeThing.....
-                }
-        
-                internal void Start()
-                {
-                    //Do SomeThing.....
-                }
-        
-                internal void Update()
-                {
-                    //Do SomeThing.....
-                }
-            }
-        }
-
-  + Event 事件类
-
-        using ETModel;
-        using System.Collections;
-        using System.Collections.Generic;
-        using UnityEngine;
-        
-        namespace EventArgType 
-        {
-            public struct ScriptName 
-            {
-                //事件脚本需要传的参数
-            }
-        }
-        
-        namespace ETHotfix
-        {
-            public partial class EventIdType
-            {
-                public const string ScriptName = "ScriptName"; 事件的名称
-            }
-        
-            [Event(EventIdType.ScriptName)]
-            public class ScriptName : AEvent<EventArgType.ScriptName>
-            {
-                public override void Run(EventArgType.ScriptName arg)
-                {
-                     //事件的执行
-                }
-            }
-        }
