@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Webpack 的 loader 配置 | ET魔改框架使用教程</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="apple-touch-icon" href="/js-Docs/apple-touch-icon.png">
+    <link rel="icon" href="/js-Docs/favicon.ico">
+    <link rel="manifest" href="/js-Docs/manifest.json">
+    <meta name="description" content="js1130的文档, vuepress 文档">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="Ld_AEWr30siza2LmmZ12csitRGsSj9gqqEAch0UXkTc">
+    
+    <link rel="preload" href="/js-Docs/assets/css/0.styles.140f6425.css" as="style"><link rel="preload" href="/js-Docs/assets/js/app.11fedfb2.js" as="script"><link rel="preload" href="/js-Docs/assets/js/2.7a01e57c.js" as="script"><link rel="preload" href="/js-Docs/assets/js/86.aa228fb1.js" as="script"><link rel="preload" href="/js-Docs/assets/js/4.2c63e9f0.js" as="script"><link rel="prefetch" href="/js-Docs/assets/js/10.1a9c4cc1.js"><link rel="prefetch" href="/js-Docs/assets/js/100.e4abe16e.js"><link rel="prefetch" href="/js-Docs/assets/js/101.e96cdb2d.js"><link rel="prefetch" href="/js-Docs/assets/js/102.ecbf27d0.js"><link rel="prefetch" href="/js-Docs/assets/js/103.0741dfe4.js"><link rel="prefetch" href="/js-Docs/assets/js/104.8b762003.js"><link rel="prefetch" href="/js-Docs/assets/js/105.b9adb2fe.js"><link rel="prefetch" href="/js-Docs/assets/js/106.85fecde5.js"><link rel="prefetch" href="/js-Docs/assets/js/107.57c22ed0.js"><link rel="prefetch" href="/js-Docs/assets/js/108.5724b17f.js"><link rel="prefetch" href="/js-Docs/assets/js/109.33914990.js"><link rel="prefetch" href="/js-Docs/assets/js/11.58ce9cf7.js"><link rel="prefetch" href="/js-Docs/assets/js/110.951d53dc.js"><link rel="prefetch" href="/js-Docs/assets/js/111.606ca513.js"><link rel="prefetch" href="/js-Docs/assets/js/112.0849e591.js"><link rel="prefetch" href="/js-Docs/assets/js/113.37670c95.js"><link rel="prefetch" href="/js-Docs/assets/js/114.cfd7a4d4.js"><link rel="prefetch" href="/js-Docs/assets/js/115.73ca3fc5.js"><link rel="prefetch" href="/js-Docs/assets/js/116.125798d7.js"><link rel="prefetch" href="/js-Docs/assets/js/117.026f19f7.js"><link rel="prefetch" href="/js-Docs/assets/js/118.0a77deb6.js"><link rel="prefetch" href="/js-Docs/assets/js/119.733d31e3.js"><link rel="prefetch" href="/js-Docs/assets/js/12.61b9f302.js"><link rel="prefetch" href="/js-Docs/assets/js/120.c9d13e8e.js"><link rel="prefetch" href="/js-Docs/assets/js/121.91ab3b45.js"><link rel="prefetch" href="/js-Docs/assets/js/122.9f8d1dfd.js"><link rel="prefetch" href="/js-Docs/assets/js/123.477f3cc7.js"><link rel="prefetch" href="/js-Docs/assets/js/124.ebbb63d6.js"><link rel="prefetch" href="/js-Docs/assets/js/125.7d2bd61c.js"><link rel="prefetch" href="/js-Docs/assets/js/126.e0146d71.js"><link rel="prefetch" href="/js-Docs/assets/js/127.49b37bef.js"><link rel="prefetch" href="/js-Docs/assets/js/128.820d907f.js"><link rel="prefetch" href="/js-Docs/assets/js/129.b7c776b4.js"><link rel="prefetch" href="/js-Docs/assets/js/13.45ed372f.js"><link rel="prefetch" href="/js-Docs/assets/js/130.a841dd06.js"><link rel="prefetch" href="/js-Docs/assets/js/131.4820cd44.js"><link rel="prefetch" href="/js-Docs/assets/js/132.d24d4710.js"><link rel="prefetch" href="/js-Docs/assets/js/133.a52e01f2.js"><link rel="prefetch" href="/js-Docs/assets/js/134.724d5a30.js"><link rel="prefetch" href="/js-Docs/assets/js/14.0002561d.js"><link rel="prefetch" href="/js-Docs/assets/js/15.62ad16f1.js"><link rel="prefetch" href="/js-Docs/assets/js/16.49677751.js"><link rel="prefetch" href="/js-Docs/assets/js/17.8fe932ee.js"><link rel="prefetch" href="/js-Docs/assets/js/18.acff760e.js"><link rel="prefetch" href="/js-Docs/assets/js/19.7d3f95d2.js"><link rel="prefetch" href="/js-Docs/assets/js/20.345a6f8d.js"><link rel="prefetch" href="/js-Docs/assets/js/21.323e8d22.js"><link rel="prefetch" href="/js-Docs/assets/js/22.0c581160.js"><link rel="prefetch" href="/js-Docs/assets/js/23.aca74efa.js"><link rel="prefetch" href="/js-Docs/assets/js/24.57cc43d5.js"><link rel="prefetch" href="/js-Docs/assets/js/25.594f2df1.js"><link rel="prefetch" href="/js-Docs/assets/js/26.1fb74852.js"><link rel="prefetch" href="/js-Docs/assets/js/27.016f8b93.js"><link rel="prefetch" href="/js-Docs/assets/js/28.a2b91f55.js"><link rel="prefetch" href="/js-Docs/assets/js/29.55a571cc.js"><link rel="prefetch" href="/js-Docs/assets/js/3.e3cfdea4.js"><link rel="prefetch" href="/js-Docs/assets/js/30.fd55870b.js"><link rel="prefetch" href="/js-Docs/assets/js/31.f810b239.js"><link rel="prefetch" href="/js-Docs/assets/js/32.bc758cd3.js"><link rel="prefetch" href="/js-Docs/assets/js/33.980ab9a4.js"><link rel="prefetch" href="/js-Docs/assets/js/34.516181f4.js"><link rel="prefetch" href="/js-Docs/assets/js/35.2c3d0edf.js"><link rel="prefetch" href="/js-Docs/assets/js/36.2504ed0d.js"><link rel="prefetch" href="/js-Docs/assets/js/37.42b24499.js"><link rel="prefetch" href="/js-Docs/assets/js/38.0994338f.js"><link rel="prefetch" href="/js-Docs/assets/js/39.48a45fc4.js"><link rel="prefetch" href="/js-Docs/assets/js/40.f9ccb4da.js"><link rel="prefetch" href="/js-Docs/assets/js/41.38af3bf9.js"><link rel="prefetch" href="/js-Docs/assets/js/42.de23e44b.js"><link rel="prefetch" href="/js-Docs/assets/js/43.1b3cf550.js"><link rel="prefetch" href="/js-Docs/assets/js/44.ab3b28af.js"><link rel="prefetch" href="/js-Docs/assets/js/45.bbe74169.js"><link rel="prefetch" href="/js-Docs/assets/js/46.ae553f73.js"><link rel="prefetch" href="/js-Docs/assets/js/47.8d59d416.js"><link rel="prefetch" href="/js-Docs/assets/js/48.84e01e5a.js"><link rel="prefetch" href="/js-Docs/assets/js/49.2a917149.js"><link rel="prefetch" href="/js-Docs/assets/js/5.2a92f22e.js"><link rel="prefetch" href="/js-Docs/assets/js/50.081806a3.js"><link rel="prefetch" href="/js-Docs/assets/js/51.6d23472c.js"><link rel="prefetch" href="/js-Docs/assets/js/52.9f0cf23a.js"><link rel="prefetch" href="/js-Docs/assets/js/53.f289eab8.js"><link rel="prefetch" href="/js-Docs/assets/js/54.afa4ff28.js"><link rel="prefetch" href="/js-Docs/assets/js/55.6c172e51.js"><link rel="prefetch" href="/js-Docs/assets/js/56.32bb34c7.js"><link rel="prefetch" href="/js-Docs/assets/js/57.bb932f7b.js"><link rel="prefetch" href="/js-Docs/assets/js/58.7dfacc0f.js"><link rel="prefetch" href="/js-Docs/assets/js/59.b6cb86fd.js"><link rel="prefetch" href="/js-Docs/assets/js/6.b2919bd2.js"><link rel="prefetch" href="/js-Docs/assets/js/60.f8f19654.js"><link rel="prefetch" href="/js-Docs/assets/js/61.6dc3b401.js"><link rel="prefetch" href="/js-Docs/assets/js/62.b940dbe1.js"><link rel="prefetch" href="/js-Docs/assets/js/63.beac7f25.js"><link rel="prefetch" href="/js-Docs/assets/js/64.bd661144.js"><link rel="prefetch" href="/js-Docs/assets/js/65.6582f201.js"><link rel="prefetch" href="/js-Docs/assets/js/66.35ae4c28.js"><link rel="prefetch" href="/js-Docs/assets/js/67.ffe180e3.js"><link rel="prefetch" href="/js-Docs/assets/js/68.d4d25a64.js"><link rel="prefetch" href="/js-Docs/assets/js/69.5a89ff51.js"><link rel="prefetch" href="/js-Docs/assets/js/7.8ababc1a.js"><link rel="prefetch" href="/js-Docs/assets/js/70.e70432d7.js"><link rel="prefetch" href="/js-Docs/assets/js/71.c85124d1.js"><link rel="prefetch" href="/js-Docs/assets/js/72.bbe1b956.js"><link rel="prefetch" href="/js-Docs/assets/js/73.ca5ec2ba.js"><link rel="prefetch" href="/js-Docs/assets/js/74.e82f5cd6.js"><link rel="prefetch" href="/js-Docs/assets/js/75.a3abd2d0.js"><link rel="prefetch" href="/js-Docs/assets/js/76.655331b7.js"><link rel="prefetch" href="/js-Docs/assets/js/77.8a686cae.js"><link rel="prefetch" href="/js-Docs/assets/js/78.9622084a.js"><link rel="prefetch" href="/js-Docs/assets/js/79.ee7fb665.js"><link rel="prefetch" href="/js-Docs/assets/js/8.1a9acafb.js"><link rel="prefetch" href="/js-Docs/assets/js/80.cdc3046b.js"><link rel="prefetch" href="/js-Docs/assets/js/81.c683a1ec.js"><link rel="prefetch" href="/js-Docs/assets/js/82.92497b81.js"><link rel="prefetch" href="/js-Docs/assets/js/83.f1cad526.js"><link rel="prefetch" href="/js-Docs/assets/js/84.b2cc5cdb.js"><link rel="prefetch" href="/js-Docs/assets/js/85.371404d4.js"><link rel="prefetch" href="/js-Docs/assets/js/87.1cfaf7e0.js"><link rel="prefetch" href="/js-Docs/assets/js/88.2731a346.js"><link rel="prefetch" href="/js-Docs/assets/js/89.8bb43fb1.js"><link rel="prefetch" href="/js-Docs/assets/js/9.190a6b1d.js"><link rel="prefetch" href="/js-Docs/assets/js/90.69f7b263.js"><link rel="prefetch" href="/js-Docs/assets/js/91.9c46354d.js"><link rel="prefetch" href="/js-Docs/assets/js/92.ba6e3a62.js"><link rel="prefetch" href="/js-Docs/assets/js/93.c26041e9.js"><link rel="prefetch" href="/js-Docs/assets/js/94.fbfaa03a.js"><link rel="prefetch" href="/js-Docs/assets/js/95.f269021a.js"><link rel="prefetch" href="/js-Docs/assets/js/96.dc73fc34.js"><link rel="prefetch" href="/js-Docs/assets/js/97.000d45c4.js"><link rel="prefetch" href="/js-Docs/assets/js/98.332f1d9b.js"><link rel="prefetch" href="/js-Docs/assets/js/99.1c71b090.js">
+    <link rel="stylesheet" href="/js-Docs/assets/css/0.styles.140f6425.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/js-Docs/" class="home-link router-link-active"><!----> <span class="site-name">ET魔改框架使用教程</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/js-Docs/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/js-Docs/guide/" class="nav-link">
+  框架文档
+</a></div><div class="nav-item"><a href="/js-Docs/computer/" class="nav-link">
+  通用模块
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/js-Docs/project/group01/" class="nav-link">
+  项目001
+</a></li><li class="dropdown-item"><!----> <a href="/js-Docs/project/group02/" class="nav-link">
+  项目002
+</a></li><li class="dropdown-item"><!----> <a href="/js-Docs/project/group03/" class="nav-link">
+  项目003
+</a></li><li class="dropdown-item"><!----> <a href="/js-Docs/project/group04/" class="nav-link">
+  更多项目
+</a></li></ul></div></div> <a href="https://github.com/js11301130/js-Docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/js-Docs/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/js-Docs/guide/" class="nav-link">
+  框架文档
+</a></div><div class="nav-item"><a href="/js-Docs/computer/" class="nav-link">
+  通用模块
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/js-Docs/project/group01/" class="nav-link">
+  项目001
+</a></li><li class="dropdown-item"><!----> <a href="/js-Docs/project/group02/" class="nav-link">
+  项目002
+</a></li><li class="dropdown-item"><!----> <a href="/js-Docs/project/group03/" class="nav-link">
+  项目003
+</a></li><li class="dropdown-item"><!----> <a href="/js-Docs/project/group04/" class="nav-link">
+  更多项目
+</a></li></ul></div></div> <a href="https://github.com/js11301130/js-Docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>WEBPACK</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/js-Docs/frontend/webpack/" aria-current="page" class="sidebar-link">首页</a></li><li><a href="/js-Docs/frontend/webpack/loader.html" aria-current="page" class="active sidebar-link">Webpack 的 loader 配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/js-Docs/frontend/webpack/loader.html#加载-css" class="sidebar-link">加载 CSS</a></li><li class="sidebar-sub-header"><a href="/js-Docs/frontend/webpack/loader.html#加载-images" class="sidebar-link">加载 Images</a></li><li class="sidebar-sub-header"><a href="/js-Docs/frontend/webpack/loader.html#加载-font-字体" class="sidebar-link">加载 Font(字体)</a></li></ul></li><li><a href="/js-Docs/frontend/webpack/simple-bundle-analysis.html" class="sidebar-link">简单打包分析</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="加载-css"><a href="#加载-css" class="header-anchor">#</a> 加载 CSS</h2> <div class="custom-block danger"><p class="custom-block-title">所需依赖</p> <p>🎉 LOADERS</p> <ol><li><code>less-loader/sass-loader/stylus-loader</code></li> <li><code>postcss-loader</code></li> <li><code>css-loader</code></li> <li><code>style-loader/</code></li> <li><code>MiniCssExtractPlugin.loader</code></li></ol> <p>🎉 PLUGINS</p> <ol><li><code>mini-css-extract-plugin</code></li> <li><code>autoprefixer</code></li></ol></div> <h3 id="_1-加载-css-的两种形式"><a href="#_1-加载-css-的两种形式" class="header-anchor">#</a> 1. 加载 CSS 的两种形式</h3> <ol><li><p>通过 style-loader 加载到 <code>&lt;style&gt;</code> 标签中</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  test<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.css$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+  use<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      loader<span class="token operator">:</span> <span class="token string">'style-loader'</span><span class="token punctuation">,</span>
+      options<span class="token operator">:</span> <span class="token punctuation">{</span>
+        insertAt<span class="token operator">:</span> <span class="token string">'top'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">'css-loader'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div></li> <li><p>通过 mini-css-extract-plugin 将所有 css 提取到 <code>&lt;link&gt;</code> 标签的 CSS 文件中</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  test<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.styl$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+  use<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      loader<span class="token operator">:</span> MiniCssExtractPlugin<span class="token punctuation">.</span>loader<span class="token punctuation">,</span>
+      options<span class="token operator">:</span> <span class="token punctuation">{</span>
+        publicPath<span class="token operator">:</span> <span class="token string">'./dist/'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">'css-loader'</span><span class="token punctuation">,</span>
+    <span class="token string">'postcss-loader'</span><span class="token punctuation">,</span>
+    <span class="token string">'stylus-loader'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div></li></ol> <h3 id="_2-为-css-添加浏览器引擎前缀"><a href="#_2-为-css-添加浏览器引擎前缀" class="header-anchor">#</a> 2. 为 CSS 添加浏览器引擎前缀</h3> <p>在匹配到 css 文件时需要添加 <code>postcss-loader</code>, 上方已有示例</p> <p>此外还需要在根目录下新建 <code>postcss.config.js</code></p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'autoprefixer'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="加载-images"><a href="#加载-images" class="header-anchor">#</a> 加载 Images</h2> <div class="custom-block danger"><p class="custom-block-title">所需依赖</p> <p>🎉 LOADERS</p> <ol><li><code>file-loader</code></li> <li><code>html-loader</code></li> <li><code>url-loader</code></li></ol></div> <h3 id="_1-加载-images-的三种方式"><a href="#_1-加载-images-的三种方式" class="header-anchor">#</a> 1. 加载 Images 的三种方式</h3> <ol><li><p>通过 JavaScript 加载</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// index.js</span>
+<span class="token keyword">import</span> Pic <span class="token keyword">from</span> <span class="token string">'./webpack01.png'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> newImage <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Image</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+newImage<span class="token punctuation">.</span>src <span class="token operator">=</span> Pic<span class="token punctuation">;</span> <span class="token comment">// 赋予</span>
+
+<span class="token comment">// webpack.config.js</span>
+rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    test<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.(png|svg|jpg|gif)$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+    use<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        loader<span class="token operator">:</span> <span class="token string">'file-loader'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre></div></li> <li><p>通过 CSS 加载</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">#app</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> orangered<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 0.5rem<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'./webpack01.jpg'</span><span class="token punctuation">)</span></span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>其余的按照上方的配置即可</p></li> <li><p>通过 HTML 加载</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// index.html</span>
+<span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">&quot;./webpack01.jpg&quot;</span> alt<span class="token operator">=</span><span class="token string">&quot;&quot;</span><span class="token operator">&gt;</span>
+  
+<span class="token comment">// webpack.config.js</span>
+rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    test<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.html$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+    use<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        loader<span class="token operator">:</span> <span class="token string">'html-loader'</span><span class="token punctuation">,</span>
+        options<span class="token operator">:</span> <span class="token punctuation">{</span>
+          attrs<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'img:src'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 此处匹配上方的 img 标签 src 属性</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre></div></li></ol> <h3 id="_2-优化-images-加载"><a href="#_2-优化-images-加载" class="header-anchor">#</a> 2. 优化 Images 加载</h3> <p>针对一些晓得图片没必要发送 HTTP 请求获取图片, 直接将图片转为 base64 的形式即可</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// webpack.config.js</span>
+rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+  <span class="token comment">// 需要注释掉 file-loader 这个匹配否则还会继续匹配然后生成图片</span>
+  <span class="token comment">// {</span>
+  <span class="token comment">//   test: /\.(png|svg|jpg|gif)$/,</span>
+  <span class="token comment">//   use: [</span>
+  <span class="token comment">//     {</span>
+  <span class="token comment">//       loader: 'file-loader'</span>
+  <span class="token comment">//     }</span>
+  <span class="token comment">//   ]</span>
+  <span class="token comment">// },</span>
+  <span class="token punctuation">{</span>
+    test<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.(png|svg|jpg|gif)$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+    use<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        loader<span class="token operator">:</span> <span class="token string">'url-loader'</span><span class="token punctuation">,</span>
+        options<span class="token operator">:</span> <span class="token punctuation">{</span>
+          limit<span class="token operator">:</span> <span class="token number">20</span><span class="token operator">*</span><span class="token number">1024</span> <span class="token comment">// 小于 20k 的图片转为 base64 </span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre></div><h2 id="加载-font-字体"><a href="#加载-font-字体" class="header-anchor">#</a> 加载 Font(字体)</h2> <div class="custom-block danger"><p class="custom-block-title">所需依赖</p> <p>🎉 LOADERS</p> <ol><li><code>file-loader</code></li> <li><code>url-loader</code></li></ol></div> <h3 id="_1-加载-font-的两种方式"><a href="#_1-加载-font-的两种方式" class="header-anchor">#</a> 1. 加载 Font 的两种方式</h3> <ol><li><p>使用 <code>file-loader</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// webpack.config.js</span>
+rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    test<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.(woff|woff2|eot|ttf|otf)$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+    use<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        loader<span class="token operator">:</span> <span class="token string">'file-loader'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre></div><div class="language-css extra-class"><pre class="language-css"><code><span class="token comment">/* style.css */</span>
+<span class="token atrule"><span class="token rule">@font-face</span></span> <span class="token punctuation">{</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'ShanFont'</span><span class="token punctuation">;</span>
+  <span class="token property">src</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'./ShanHunTianGeMoJi-2.ttf'</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> 600<span class="token punctuation">;</span>
+  <span class="token property">font-style</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.shan</span> <span class="token punctuation">{</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'ShanFont'</span><span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> blueviolet<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>使用 <code>url-loader</code></p> <p><code>url-loader</code> 更进一步可以对资源的大小进行判断, 然后是否转成 base64 的资源</p></li></ol></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/js11301130/js-Docs/edit/master/docs/frontend/webpack/loader.md" target="_blank" rel="noopener noreferrer">编辑文档！</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021年5月26日星期三晚上9点50分</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/js-Docs/frontend/webpack/" class="prev router-link-active">
+        首页
+      </a></span> <span class="next"><a href="/js-Docs/frontend/webpack/simple-bundle-analysis.html">
+        简单打包分析
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/js-Docs/assets/js/app.11fedfb2.js" defer></script><script src="/js-Docs/assets/js/2.7a01e57c.js" defer></script><script src="/js-Docs/assets/js/86.aa228fb1.js" defer></script><script src="/js-Docs/assets/js/4.2c63e9f0.js" defer></script>
+  </body>
+</html>

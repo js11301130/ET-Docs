@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>笔记（过程中遇到的问题 暂未分类整理） | ET魔改框架使用教程</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="apple-touch-icon" href="/js-Docs/apple-touch-icon.png">
+    <link rel="icon" href="/js-Docs/favicon.ico">
+    <link rel="manifest" href="/js-Docs/manifest.json">
+    <meta name="description" content="js1130的文档, vuepress 文档">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="Ld_AEWr30siza2LmmZ12csitRGsSj9gqqEAch0UXkTc">
+    
+    <link rel="preload" href="/js-Docs/assets/css/0.styles.140f6425.css" as="style"><link rel="preload" href="/js-Docs/assets/js/app.11fedfb2.js" as="script"><link rel="preload" href="/js-Docs/assets/js/2.7a01e57c.js" as="script"><link rel="preload" href="/js-Docs/assets/js/94.fbfaa03a.js" as="script"><link rel="preload" href="/js-Docs/assets/js/4.2c63e9f0.js" as="script"><link rel="prefetch" href="/js-Docs/assets/js/10.1a9c4cc1.js"><link rel="prefetch" href="/js-Docs/assets/js/100.e4abe16e.js"><link rel="prefetch" href="/js-Docs/assets/js/101.e96cdb2d.js"><link rel="prefetch" href="/js-Docs/assets/js/102.ecbf27d0.js"><link rel="prefetch" href="/js-Docs/assets/js/103.0741dfe4.js"><link rel="prefetch" href="/js-Docs/assets/js/104.8b762003.js"><link rel="prefetch" href="/js-Docs/assets/js/105.b9adb2fe.js"><link rel="prefetch" href="/js-Docs/assets/js/106.85fecde5.js"><link rel="prefetch" href="/js-Docs/assets/js/107.57c22ed0.js"><link rel="prefetch" href="/js-Docs/assets/js/108.5724b17f.js"><link rel="prefetch" href="/js-Docs/assets/js/109.33914990.js"><link rel="prefetch" href="/js-Docs/assets/js/11.58ce9cf7.js"><link rel="prefetch" href="/js-Docs/assets/js/110.951d53dc.js"><link rel="prefetch" href="/js-Docs/assets/js/111.606ca513.js"><link rel="prefetch" href="/js-Docs/assets/js/112.0849e591.js"><link rel="prefetch" href="/js-Docs/assets/js/113.37670c95.js"><link rel="prefetch" href="/js-Docs/assets/js/114.cfd7a4d4.js"><link rel="prefetch" href="/js-Docs/assets/js/115.73ca3fc5.js"><link rel="prefetch" href="/js-Docs/assets/js/116.125798d7.js"><link rel="prefetch" href="/js-Docs/assets/js/117.026f19f7.js"><link rel="prefetch" href="/js-Docs/assets/js/118.0a77deb6.js"><link rel="prefetch" href="/js-Docs/assets/js/119.733d31e3.js"><link rel="prefetch" href="/js-Docs/assets/js/12.61b9f302.js"><link rel="prefetch" href="/js-Docs/assets/js/120.c9d13e8e.js"><link rel="prefetch" href="/js-Docs/assets/js/121.91ab3b45.js"><link rel="prefetch" href="/js-Docs/assets/js/122.9f8d1dfd.js"><link rel="prefetch" href="/js-Docs/assets/js/123.477f3cc7.js"><link rel="prefetch" href="/js-Docs/assets/js/124.ebbb63d6.js"><link rel="prefetch" href="/js-Docs/assets/js/125.7d2bd61c.js"><link rel="prefetch" href="/js-Docs/assets/js/126.e0146d71.js"><link rel="prefetch" href="/js-Docs/assets/js/127.49b37bef.js"><link rel="prefetch" href="/js-Docs/assets/js/128.820d907f.js"><link rel="prefetch" href="/js-Docs/assets/js/129.b7c776b4.js"><link rel="prefetch" href="/js-Docs/assets/js/13.45ed372f.js"><link rel="prefetch" href="/js-Docs/assets/js/130.a841dd06.js"><link rel="prefetch" href="/js-Docs/assets/js/131.4820cd44.js"><link rel="prefetch" href="/js-Docs/assets/js/132.d24d4710.js"><link rel="prefetch" href="/js-Docs/assets/js/133.a52e01f2.js"><link rel="prefetch" href="/js-Docs/assets/js/134.724d5a30.js"><link rel="prefetch" href="/js-Docs/assets/js/14.0002561d.js"><link rel="prefetch" href="/js-Docs/assets/js/15.62ad16f1.js"><link rel="prefetch" href="/js-Docs/assets/js/16.49677751.js"><link rel="prefetch" href="/js-Docs/assets/js/17.8fe932ee.js"><link rel="prefetch" href="/js-Docs/assets/js/18.acff760e.js"><link rel="prefetch" href="/js-Docs/assets/js/19.7d3f95d2.js"><link rel="prefetch" href="/js-Docs/assets/js/20.345a6f8d.js"><link rel="prefetch" href="/js-Docs/assets/js/21.323e8d22.js"><link rel="prefetch" href="/js-Docs/assets/js/22.0c581160.js"><link rel="prefetch" href="/js-Docs/assets/js/23.aca74efa.js"><link rel="prefetch" href="/js-Docs/assets/js/24.57cc43d5.js"><link rel="prefetch" href="/js-Docs/assets/js/25.594f2df1.js"><link rel="prefetch" href="/js-Docs/assets/js/26.1fb74852.js"><link rel="prefetch" href="/js-Docs/assets/js/27.016f8b93.js"><link rel="prefetch" href="/js-Docs/assets/js/28.a2b91f55.js"><link rel="prefetch" href="/js-Docs/assets/js/29.55a571cc.js"><link rel="prefetch" href="/js-Docs/assets/js/3.e3cfdea4.js"><link rel="prefetch" href="/js-Docs/assets/js/30.fd55870b.js"><link rel="prefetch" href="/js-Docs/assets/js/31.f810b239.js"><link rel="prefetch" href="/js-Docs/assets/js/32.bc758cd3.js"><link rel="prefetch" href="/js-Docs/assets/js/33.980ab9a4.js"><link rel="prefetch" href="/js-Docs/assets/js/34.516181f4.js"><link rel="prefetch" href="/js-Docs/assets/js/35.2c3d0edf.js"><link rel="prefetch" href="/js-Docs/assets/js/36.2504ed0d.js"><link rel="prefetch" href="/js-Docs/assets/js/37.42b24499.js"><link rel="prefetch" href="/js-Docs/assets/js/38.0994338f.js"><link rel="prefetch" href="/js-Docs/assets/js/39.48a45fc4.js"><link rel="prefetch" href="/js-Docs/assets/js/40.f9ccb4da.js"><link rel="prefetch" href="/js-Docs/assets/js/41.38af3bf9.js"><link rel="prefetch" href="/js-Docs/assets/js/42.de23e44b.js"><link rel="prefetch" href="/js-Docs/assets/js/43.1b3cf550.js"><link rel="prefetch" href="/js-Docs/assets/js/44.ab3b28af.js"><link rel="prefetch" href="/js-Docs/assets/js/45.bbe74169.js"><link rel="prefetch" href="/js-Docs/assets/js/46.ae553f73.js"><link rel="prefetch" href="/js-Docs/assets/js/47.8d59d416.js"><link rel="prefetch" href="/js-Docs/assets/js/48.84e01e5a.js"><link rel="prefetch" href="/js-Docs/assets/js/49.2a917149.js"><link rel="prefetch" href="/js-Docs/assets/js/5.2a92f22e.js"><link rel="prefetch" href="/js-Docs/assets/js/50.081806a3.js"><link rel="prefetch" href="/js-Docs/assets/js/51.6d23472c.js"><link rel="prefetch" href="/js-Docs/assets/js/52.9f0cf23a.js"><link rel="prefetch" href="/js-Docs/assets/js/53.f289eab8.js"><link rel="prefetch" href="/js-Docs/assets/js/54.afa4ff28.js"><link rel="prefetch" href="/js-Docs/assets/js/55.6c172e51.js"><link rel="prefetch" href="/js-Docs/assets/js/56.32bb34c7.js"><link rel="prefetch" href="/js-Docs/assets/js/57.bb932f7b.js"><link rel="prefetch" href="/js-Docs/assets/js/58.7dfacc0f.js"><link rel="prefetch" href="/js-Docs/assets/js/59.b6cb86fd.js"><link rel="prefetch" href="/js-Docs/assets/js/6.b2919bd2.js"><link rel="prefetch" href="/js-Docs/assets/js/60.f8f19654.js"><link rel="prefetch" href="/js-Docs/assets/js/61.6dc3b401.js"><link rel="prefetch" href="/js-Docs/assets/js/62.b940dbe1.js"><link rel="prefetch" href="/js-Docs/assets/js/63.beac7f25.js"><link rel="prefetch" href="/js-Docs/assets/js/64.bd661144.js"><link rel="prefetch" href="/js-Docs/assets/js/65.6582f201.js"><link rel="prefetch" href="/js-Docs/assets/js/66.35ae4c28.js"><link rel="prefetch" href="/js-Docs/assets/js/67.ffe180e3.js"><link rel="prefetch" href="/js-Docs/assets/js/68.d4d25a64.js"><link rel="prefetch" href="/js-Docs/assets/js/69.5a89ff51.js"><link rel="prefetch" href="/js-Docs/assets/js/7.8ababc1a.js"><link rel="prefetch" href="/js-Docs/assets/js/70.e70432d7.js"><link rel="prefetch" href="/js-Docs/assets/js/71.c85124d1.js"><link rel="prefetch" href="/js-Docs/assets/js/72.bbe1b956.js"><link rel="prefetch" href="/js-Docs/assets/js/73.ca5ec2ba.js"><link rel="prefetch" href="/js-Docs/assets/js/74.e82f5cd6.js"><link rel="prefetch" href="/js-Docs/assets/js/75.a3abd2d0.js"><link rel="prefetch" href="/js-Docs/assets/js/76.655331b7.js"><link rel="prefetch" href="/js-Docs/assets/js/77.8a686cae.js"><link rel="prefetch" href="/js-Docs/assets/js/78.9622084a.js"><link rel="prefetch" href="/js-Docs/assets/js/79.ee7fb665.js"><link rel="prefetch" href="/js-Docs/assets/js/8.1a9acafb.js"><link rel="prefetch" href="/js-Docs/assets/js/80.cdc3046b.js"><link rel="prefetch" href="/js-Docs/assets/js/81.c683a1ec.js"><link rel="prefetch" href="/js-Docs/assets/js/82.92497b81.js"><link rel="prefetch" href="/js-Docs/assets/js/83.f1cad526.js"><link rel="prefetch" href="/js-Docs/assets/js/84.b2cc5cdb.js"><link rel="prefetch" href="/js-Docs/assets/js/85.371404d4.js"><link rel="prefetch" href="/js-Docs/assets/js/86.aa228fb1.js"><link rel="prefetch" href="/js-Docs/assets/js/87.1cfaf7e0.js"><link rel="prefetch" href="/js-Docs/assets/js/88.2731a346.js"><link rel="prefetch" href="/js-Docs/assets/js/89.8bb43fb1.js"><link rel="prefetch" href="/js-Docs/assets/js/9.190a6b1d.js"><link rel="prefetch" href="/js-Docs/assets/js/90.69f7b263.js"><link rel="prefetch" href="/js-Docs/assets/js/91.9c46354d.js"><link rel="prefetch" href="/js-Docs/assets/js/92.ba6e3a62.js"><link rel="prefetch" href="/js-Docs/assets/js/93.c26041e9.js"><link rel="prefetch" href="/js-Docs/assets/js/95.f269021a.js"><link rel="prefetch" href="/js-Docs/assets/js/96.dc73fc34.js"><link rel="prefetch" href="/js-Docs/assets/js/97.000d45c4.js"><link rel="prefetch" href="/js-Docs/assets/js/98.332f1d9b.js"><link rel="prefetch" href="/js-Docs/assets/js/99.1c71b090.js">
+    <link rel="stylesheet" href="/js-Docs/assets/css/0.styles.140f6425.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/js-Docs/" class="home-link router-link-active"><!----> <span class="site-name">ET魔改框架使用教程</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/js-Docs/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/js-Docs/guide/" class="nav-link">
+  框架文档
+</a></div><div class="nav-item"><a href="/js-Docs/computer/" class="nav-link">
+  通用模块
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/js-Docs/project/group01/" class="nav-link">
+  项目001
+</a></li><li class="dropdown-item"><!----> <a href="/js-Docs/project/group02/" class="nav-link">
+  项目002
+</a></li><li class="dropdown-item"><!----> <a href="/js-Docs/project/group03/" class="nav-link">
+  项目003
+</a></li><li class="dropdown-item"><!----> <a href="/js-Docs/project/group04/" class="nav-link">
+  更多项目
+</a></li></ul></div></div> <a href="https://github.com/js11301130/js-Docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/js-Docs/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/js-Docs/guide/" class="nav-link">
+  框架文档
+</a></div><div class="nav-item"><a href="/js-Docs/computer/" class="nav-link">
+  通用模块
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/js-Docs/project/group01/" class="nav-link">
+  项目001
+</a></li><li class="dropdown-item"><!----> <a href="/js-Docs/project/group02/" class="nav-link">
+  项目002
+</a></li><li class="dropdown-item"><!----> <a href="/js-Docs/project/group03/" class="nav-link">
+  项目003
+</a></li><li class="dropdown-item"><!----> <a href="/js-Docs/project/group04/" class="nav-link">
+  更多项目
+</a></li></ul></div></div> <a href="https://github.com/js11301130/js-Docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>NODE</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/js-Docs/node/" aria-current="page" class="active sidebar-link">笔记（过程中遇到的问题 暂未分类整理）</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/js-Docs/node/#数组" class="sidebar-link">数组</a></li><li class="sidebar-sub-header"><a href="/js-Docs/node/#枚举" class="sidebar-link">枚举</a></li><li class="sidebar-sub-header"><a href="/js-Docs/node/#反射" class="sidebar-link">反射</a></li><li class="sidebar-sub-header"><a href="/js-Docs/node/#animator" class="sidebar-link">Animator</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="git"><a href="#git" class="header-anchor">#</a> GIT</h1> <ul><li><h4 id="gitignore不起作用的解决方法"><a href="#gitignore不起作用的解决方法" class="header-anchor">#</a> GITIGNORE不起作用的解决方法</h4> <p>cmd进入对于的项目文件夹 依次输入</p> <div class="language- extra-class"><pre class="language-text"><code>git rm -r --cached .
+git add .
+git commit -m 'update .gitignore'
+</code></pre></div></li></ul> <h1 id="c"><a href="#c" class="header-anchor">#</a> C#</h1> <h2 id="数组"><a href="#数组" class="header-anchor">#</a> 数组</h2> <ul><li>乱序</li></ul> <div class="language-c# extra-class"><pre class="language-text"><code>private List&lt;string&gt; GetRandomData(List&lt;string&gt; data)
+{
+    var temp = new List&lt;string&gt;(data);
+   
+    System.Random random = new System.Random();
+   
+    foreach (var item in data)
+    {
+        int c = random.Next(temp.Count);
+        temp.Insert(c, item);
+    }
+    return temp;
+}
+</code></pre></div><h2 id="枚举"><a href="#枚举" class="header-anchor">#</a> 枚举</h2> <ul><li>1&lt;&lt; 1  代表往左移动一位 表示2的1次方 以此类推</li> <li>|  运算符 需要和flags属性一起用 表示多个状态集合 在设置枚举的值的时候需要用2的n次幂来避免相加后与枚举的值相等</li></ul> <h2 id="反射"><a href="#反射" class="header-anchor">#</a> 反射</h2> <div class="language-c# extra-class"><pre class="language-text"><code>//获取类型对象所有的子类
+private static List&lt;Type&gt; GetAllChildClass(Type baseType)
+{
+     List&lt;Type&gt; typelist = new List&lt;Type&gt;();
+     List&lt;Type&gt; ts = ETModel.Game.Hotfix.GetHotfixTypes();
+     foreach (var item in ts)
+     {
+        if (item.BaseType == baseType)
+        {
+            typelist.Add(item);
+        }
+     }
+    return typelist;
+}
+
+         
+//反射复制对象属性
+public static object MapperItem(Type targettypeName, object target)
+{
+   var type = Type.GetType(targettypeName.FullName);
+   var result = Activator.CreateInstance(type);
+   try
+   {
+      var targetType = target.GetType();
+      var resultType = result.GetType();
+      foreach (FieldInfo targetItem in targetType.GetFields())
+      {
+          foreach (FieldInfo resultItem in resultType.GetFields())
+          {
+            if (resultItem.Name == targetItem.Name)
+            {
+              resultItem.SetValue(result, targetItem.GetValue(target));
+              break;
+            }
+          }
+       }
+    }
+    catch (Exception ex)
+    {
+       Debug.Log(ex.StackTrace);
+    }
+    return result;
+}
+</code></pre></div><div class="language-c# extra-class"><pre class="language-text"><code> ///遍历List 
+ int count = Convert.ToInt32(value.GetType().GetProperty(&quot;Count&quot;).GetValue(value, null));
+ for (int i = 0; i &lt; count; i++)
+ {
+   object listItem = value.GetType().GetProperty(&quot;Item&quot;).GetValue(value, new object[] { i });
+ }
+</code></pre></div><h1 id="josn"><a href="#josn" class="header-anchor">#</a> JOSN</h1> <div class="language-c# extra-class"><pre class="language-text"><code>//多态 转JSON的时候，传入设置即可  转Object也需要作为参数
+Newtonsoft.Json.JsonSerializerSettings settings = new Newtonsoft.Json.JsonSerializerSettings()
+{
+   TypeNameHandling = Newtonsoft.Json.TypeNameHandling.All
+};
+</code></pre></div><div class="language-c# extra-class"><pre class="language-text"><code>//Newtonsoft.Json  基类转子类
+public abstract class JsonCreationConverter&lt;T&gt; : JsonConverter
+{
+	protected abstract T Create(Type objectType, JObject jsonObject);
+	public override bool CanConvert(Type objectType)
+	{
+		return typeof(T).IsAssignableFrom(objectType);
+	}
+
+	public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+	{
+		var jsonObject = JObject.Load(reader);
+		var target = Create(objectType, jsonObject);
+		serializer.Populate(jsonObject.CreateReader(), target);
+		return target;
+	}
+
+	public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+	{
+		throw new NotImplementedException();
+	}
+}
+public class JsonBBBConverter : JsonCreationConverter&lt;BBB&gt;
+{
+	protected override BBB Create(Type objectType, JObject jsonObject)
+	{
+		var typeName = jsonObject[&quot;Type&quot;].ToString().Replace(&quot;\&quot;&quot;,&quot;&quot;);
+		switch (typeName)
+		{
+			case &quot;AAA&quot;:
+				return new AAA();
+			case &quot;CCC&quot;:
+				return new CCC();
+			default:
+				return null;
+		}
+	}
+}
+public class AAA : BBB
+{
+	public string Name;
+}
+
+public class CCC : BBB
+{
+	public int Age;
+}
+
+public class BBB
+{
+	[JsonProperty(&quot;Type&quot;)]
+	public string JsonType;
+}
+</code></pre></div><h1 id="unity"><a href="#unity" class="header-anchor">#</a> Unity</h1> <h2 id="animator"><a href="#animator" class="header-anchor">#</a> Animator</h2> <ul><li>当删除某些没有K进动画的模型时  Avatar有可能会使动画失效</li></ul> <h1 id="android"><a href="#android" class="header-anchor">#</a> Android</h1> <ul><li><h4 id="读取本地文件-不能使用file-read等io的读取方式-需要使用www或者webrequest"><a href="#读取本地文件-不能使用file-read等io的读取方式-需要使用www或者webrequest" class="header-anchor">#</a> 读取本地文件 不能使用File.Read等IO的读取方式 需要使用WWW或者WebRequest</h4> <div class="language-c# extra-class"><pre class="language-text"><code>async Task&lt;byte[]&gt; LoadFile(string path)
+{
+    UnityWebRequest request = UnityWebRequest.Get(path);
+    await request.SendWebRequest();
+    if (!request.isHttpError &amp;&amp; !request.isNetworkError)
+    {
+       return request.downloadHandler.data;
+    }
+    return null;
+}
+</code></pre></div></li> <li><h4 id="如果想要使用file-io去读取文件-需要先复制一份文件到本地文件夹"><a href="#如果想要使用file-io去读取文件-需要先复制一份文件到本地文件夹" class="header-anchor">#</a> 如果想要使用File IO去读取文件 需要先复制一份文件到本地文件夹</h4></li></ul> <div class="language-c# extra-class"><pre class="language-text"><code>async void Start()
+{
+    var path = Application.streamingAssetsPath + &quot;/&quot; + &quot;data&quot;;
+    var savepath = Application.persistentDataPath + &quot;/&quot; + &quot;data&quot;;  
+    _bytes = await LoadFile(path);
+    if (!File.Exists(savepath))
+    {
+       //创建文件
+       var fileSteam= File.Create(savepath);
+       fileSteam.Write(_bytes,0,_bytes.Length);
+       fileSteam.Close();
+    }
+    var filestream = File.Open(savepath,FileMode.Open);
+}
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/js11301130/js-Docs/edit/master/docs/node/README.md" target="_blank" rel="noopener noreferrer">编辑文档！</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021年6月28日星期一上午10点40分</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/js-Docs/assets/js/app.11fedfb2.js" defer></script><script src="/js-Docs/assets/js/2.7a01e57c.js" defer></script><script src="/js-Docs/assets/js/94.fbfaa03a.js" defer></script><script src="/js-Docs/assets/js/4.2c63e9f0.js" defer></script>
+  </body>
+</html>
